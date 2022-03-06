@@ -8,8 +8,40 @@
 
 ## Passos iniciais: 
 
-Primeiramente vamos criar uma imagem Docker para o nosso serviço. Na pasta 
+Primeiramente vamos criar uma imagem Docker para o nosso serviço. Na pasta **dockerizando_local** temos o arquivo **Dockerfile** que tem a configuração de como a imagem será construída, cujo conteúdo é:
 
+```
+FROM node:14-alpine as base
+
+WORKDIR /
+
+COPY . /
+
+EXPOSE 80
+
+FROM base as dev
+ENV NODE_ENV=production
+RUN npm install
+
+CMD ["node", "index.js"]
+```
+
+Como este simples  **Dockerfile** podemos usar o comando de construção **docker build** para criar a imagem Docker.
+
+```
+
+```
+
+node-lambda:latest
+
+```
+
+```
+
+
+
+
+/home/julian/Desktop/treinamento_OCI
 
  https://hub.docker.com/r/amazon/aws-lambda-nodejs
 

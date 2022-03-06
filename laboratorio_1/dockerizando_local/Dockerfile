@@ -7,8 +7,8 @@ COPY . /
 EXPOSE 80
 
 FROM base as dev
-ENV NODE_ENV=development
-RUN npm install -g nodemon && npm install
+ENV NODE_ENV=production
+RUN npm install
 
 CMD ["node", "index.js"]
 
